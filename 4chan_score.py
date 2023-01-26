@@ -31,8 +31,8 @@ results_with_scores = []
 # response = requests.get(url)
 # vulgar_words = response.text.splitlines()
 
-# with open("Terms-to-Block.csv", "r") as file:
-#     vulgar_words = file.read().splitlines()
+ with open("Terms-to-Block.csv", "r") as file:
+     vulgar_words = file.read().splitlines()
 
 
 # Loop through each result and calculate its vulgarity score
