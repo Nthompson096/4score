@@ -8,7 +8,8 @@ nltk.download('stopwords')
 nltk.download('punkt')
 
 # Prompt the user for a subject to search
-subject = input("Enter a subject to search for or enter nothing for /random/ ")
+print("Enter a subject to search for or enter nothing for /random/") 
+subject = input()
 
 # Set the search parameters
 url = "https://find.4chan.org/?q=" + subject
@@ -68,3 +69,10 @@ with open("results.txt", "w") as file:
                 text = result[1].text
         # Write the result text and vulgarity score to the file
         file.write(result[1].text + " (Vulgarity Score: " + str(result[0]) + ")\n")
+
+# Open the file for reading
+with open("results.txt", "r") as file:
+    # Read the contents of the file
+    file_contents = file.read()
+    # Print the contents of the file
+    print(file_contents)
