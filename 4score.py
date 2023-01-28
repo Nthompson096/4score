@@ -1,5 +1,6 @@
 import re
 import requests
+import os
 from bs4 import BeautifulSoup
 import nltk
 from nltk.corpus import stopwords
@@ -76,3 +77,7 @@ with open("results.txt", "r") as file:
     file_contents = file.read()
     # Print the contents of the file
     print(file_contents)
+
+
+# Remove the file
+# os.remove("results.txt")
