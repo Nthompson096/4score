@@ -21,8 +21,8 @@ response = requests.get(url)
 # Parse the HTML content
 soup = BeautifulSoup(response.content, "html.parser")
 
-# Find all the elements with the class "thread" (these contain the search results)
-results = soup.find_all(class_="post reply")
+# Find all the blockquote elements (these contain the search results)
+results = soup.find_all("blockquote")
 
 # Create an empty list to store the results with vulgarity scores
 results_with_scores = []
