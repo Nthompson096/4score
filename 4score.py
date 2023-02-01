@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
+from gtts import gTTS
 nltk.download('stopwords')
 nltk.download('punkt')
 
@@ -49,8 +50,11 @@ for result in results:
             vulgarity_score += 1
     results_with_scores.append((vulgarity_score, result))
 
-# Sort the results by vulgarity score in descending order
-results_with_scores = sorted(results_with_scores, key=lambda x: x[0])
+# Sort the results by vulgarity score in descending order, uncomment this.
+# results_with_scores = sorted(results_with_scores, key=lambda x: x[0])
+
+# To sort in ascending order uncomment this if you haven't.
+results_with_scores = sorted(results_with_scores, key=lambda x: x[0], reverse=True)
 
 # Open a file for writing
 with open("results.txt", "w") as file:
@@ -71,13 +75,27 @@ with open("results.txt", "w") as file:
         # Write the result text and vulgarity score to the file
         file.write(result[1].text + " (Vulgarity Score: " + str(result[0]) + ")\n")
 
-# Open the file for reading
+# Open the file for reading, text only.
 with open("results.txt", "r") as file:
     # Read the contents of the file
     file_contents = file.read()
     # Print the contents of the file
     print(file_contents)
 
+    # Voice and text output; probably want to keep this disabled unless if you're in a private place.
+# with open("results.txt", "r") as file:
+#     # Read the contents of the file
+#     file_contents = file.read()
+#     # Print the contents of the file
+#     print(file_contents)
+#     # Generate the voice
+#     tts = gTTS(text=file_contents, lang='en')
+#     # Save the voice to a file
+#     tts.save("voice.mp3")
+#     # Play the voice
+#     os.system("mpg123 voice.mp3")
+
 
 # Remove the file
 # os.remove("results.txt")
+# os.remove("voice.mp3")
