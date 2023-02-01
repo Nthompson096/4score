@@ -10,7 +10,15 @@ Addtionaly you may edit the python script to use an online wordlist; that will b
 you'll need to install the depenedancy for google text to speech such as:
 ``mpg123`` and you should be set!
 
-be sure to comment these following lines too
+be sure to uncomment these following lines too; be sure to comment the lines above it IE
+
+    with open("results.txt", "r") as file:
+    # Read the contents of the file
+    file_contents = file.read()
+    # Print the contents of the file
+    print(file_contents)
+
+These are the lines for audio output
 
     with open("results.txt", "r") as file:
     # Read the contents of the file
