@@ -58,6 +58,7 @@ These are the lines for audio output
     
 ## And to have the files be removed after execution uncomment these two lines at the end of the script
 
-    # Remove the file
+    # Remove the files
     # os.remove("results.txt")
     # os.remove("voice.mp3")
+    # os.remove("voice.wav")
