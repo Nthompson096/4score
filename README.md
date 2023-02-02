@@ -8,7 +8,7 @@ Addtionaly you may edit the python script to use an online wordlist; that will b
 ## Able to read text with audio output
 
 you'll need to install the depenedancy for google text to speech such as:
-``mpg123`` and you should be set!
+~~mpg123~~ ``ffmpeg`` and ``ffplay`` and you should be set!
 
 be sure to uncomment these following lines too; be sure to comment the lines above it IE
 
