@@ -15,10 +15,20 @@ This would be only used for text only; on by default; comment it out if using vo
     # Open the file for reading, text only; on by default.
 
     with open("results.txt", "r") as file:
-        # Read the contents of the file
-        file_contents = file.read()
-        # Print the contents of the file
-        print(file_contents)
+        content = file.readlines()
+        output = ""
+        for line in content:
+            result = line.strip()
+            result_with_spaces = result.replace(" ", " ")
+            result_with_spaces = re.sub(r'(\b>\b)', r' \1', result_with_spaces)
+            result_with_spaces = re.sub(r'(?<=[^\s])(https?://\S+)', r' \1', result_with_spaces)
+            result_with_spaces = re.sub(r'(\d+)(?=>)', r'\1 ', result_with_spaces)
+            result_with_spaces = re.sub(r'(?<=[^>\d])(>)', r' \1', result_with_spaces)
+            result_with_spaces = re.sub(r'^(>>\d+)', r'\1 ', result_with_spaces)
+            result_with_spaces = re.sub(r'(?<=[a-z])([A-Z])', r' \1', result_with_spaces)
+            output += result_with_spaces + "\n"
+        if output.strip():
+            print(output)
 
 These are the lines for audio output
 
@@ -26,41 +36,45 @@ These are the lines for audio output
     #     OFF BY DEFAULT
 
     # with open("results.txt", "r") as file:
-    #     # Read the contents of the file
-    #     file_contents = file.read()
-    #     # Print the contents of the file
-    #     print(file_contents)
-    #     # Generate the voice
-    #     tts = gTTS(text=file_contents, lang='en')
-    #     # Save the voice to a file
-    #     tts.save("voice.mp3")
-    #     # Play the voice using ffplay as a subprocess
-    #     subprocess.call(["ffplay", "-hide_banner", "-loglevel", "panic", "-i", "voice.mp3", "-af", "volume=0.5"])
-
-
+    #     content = file.readlines()
+    #     output = ""
+    #     for line in content:
+    #         result = line.strip()
+    #         result_with_spaces = result.replace(" ", " ")
+    #         result_with_spaces = re.sub(r'(\b>\b)', r' \1', result_with_spaces)
+    #         result_with_spaces = re.sub(r'(?<=[^\s])(https?://\S+)', r' \1', result_with_spaces)
+    #         result_with_spaces = re.sub(r'(\d+)(?=>)', r'\1 ', result_with_spaces)
+    #         result_with_spaces = re.sub(r'(?<=[^>\d])(>)', r' \1', result_with_spaces)
+    #         result_with_spaces = re.sub(r'^(>>\d+)', r'\1 ', result_with_spaces)
+    #         result_with_spaces = re.sub(r'(?<=[a-z])([A-Z])', r' \1', result_with_spaces)
+    #         output += result_with_spaces + "\n"
+    #     if output.strip():
+    #         print(output)
+    #         tts = gTTS(text=output, lang='en')
+    #         tts.save("voice.mp3")
+    #         subprocess.call(["ffplay", "-hide_banner", "-loglevel", "panic", "-i", "voice.mp3", "-af", "volume=0.5"])
 
     #     espeak libaray, much faster than google but doesn't save; again it's disabled/commented out by default.
     #     OFF BY DEFAULT
 
     # with open("results.txt", "r") as file:
-    #     file_contents = file.read()
-
-    # if os.path.exists("voice.mp3"):
-    #     response = input("The file voice.mp3 already exists. Do you want to overwrite it? (y/n)")
-    #     if response.lower() != "y":
-    #         exit()
-
-    # # Print the contents of the file
-    # print(file_contents)
-
-    # # Run espeak and save the output to a wav file
-    # subprocess.call(["espeak", "-v", "en-us", "-w", "voice.wav", file_contents], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-
-    # # Run ffmpeg to convert the wav file to mp3
-    # subprocess.call(["ffmpeg", "-y", "-i", "voice.wav", "voice.mp3"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-
-    # # Play the mp3 file using ffplay
-    # subprocess.call(["ffplay", "voice.mp3"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    #     content = file.readlines()
+    #     output = ""
+    #     for line in content:
+    #         result = line.strip()
+    #         result_with_spaces = result.replace(" ", " ")
+    #         result_with_spaces = re.sub(r'(\b>\b)', r' \1', result_with_spaces)
+    #         result_with_spaces = re.sub(r'(?<=[^\s])(https?://\S+)', r' \1', result_with_spaces)
+    #         result_with_spaces = re.sub(r'(\d+)(?=>)', r'\1 ', result_with_spaces)
+    #         result_with_spaces = re.sub(r'(?<=[^>\d])(>)', r' \1', result_with_spaces)
+    #         result_with_spaces = re.sub(r'^(>>\d+)', r'\1 ', result_with_spaces)
+    #         result_with_spaces = re.sub(r'(?<=[a-z])([A-Z])', r' \1', result_with_spaces)
+    #         output += result_with_spaces + "\n"
+    #     if output.strip():
+    #         print(output)
+    #         subprocess.call(["espeak", "-v", "en-us", "-w", "voice.wav", output], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    #         subprocess.call(["ffmpeg", "-y", "-i", "voice.wav", "voice.mp3"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    #         subprocess.call(["ffplay", "voice.mp3"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     
 
 ## To sort by asending or desending order comment or uncomment one of these lines:
