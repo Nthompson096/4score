@@ -54,7 +54,7 @@ These are the lines for audio output
     #         tts.save("voice.mp3")
     #         subprocess.call(["ffplay", "-hide_banner", "-loglevel", "panic", "-i", "voice.mp3", "-af", "volume=0.5"])
 
-    #     espeak libaray, much faster than google but doesn't save; again it's disabled/commented out by default.
+    #     espeak libaray, much faster than google; again it's disabled/commented out by default.
     #     OFF BY DEFAULT
 
     # with open("results.txt", "r") as file:
