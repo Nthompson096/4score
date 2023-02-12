@@ -13,9 +13,11 @@ you'll need to install the depenedancy for google text to speech such as:
 Disregard that just run requirements.txt with
 
     python3 -m venv 4score
+
     
     source 4score/bin/activate
-    
+
+
     pip install -r requirements.txt
 
 This would be only used for text only; on by default; comment it out if using voice.
