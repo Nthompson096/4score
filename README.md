@@ -11,12 +11,14 @@ you'll need to install the depenedancy for google text to speech such as:
 ~~mpg123 ffmpeg and ffplay and you should be set!~~
 
 Disregard that just run requirements.txt with
-
+    
     python3 -m venv 4score
 
-    
+<br>
+
     source 4score/bin/activate
 
+<br>
 
     pip install -r requirements.txt
 
