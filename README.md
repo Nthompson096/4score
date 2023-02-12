@@ -10,7 +10,9 @@ Addtionaly you may edit the python script to use an online wordlist; that will b
 you'll need to install the depenedancy for google text to speech such as:
 ~~mpg123 ffmpeg and ffplay and you should be set!~~
 
-Disregard that just run requirements.txt
+Disregard that just run requirements.txt with
+
+``pip install -r requirements.txt``
 
 This would be only used for text only; on by default; comment it out if using voice.
 
