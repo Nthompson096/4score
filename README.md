@@ -6,10 +6,10 @@ Addtionaly you may edit the python script to use an online wordlist; that will b
 
 ## Able to read text with audio output, installing dependencies
 
-~~you'll need to install the depenedancy for google text to speech such as:
-mpg123 ffmpeg and ffplay and you should be set!~~
+you'll need to install the depenedancy for google text to speech such as:
+~~mpg123~~ ``ffmpeg`` and ``ffplay`` and you should be set!
 
-Disregard that just run requirements.txt with
+Then just run requirements.txt with
     
     python3 -m venv 4score
 
