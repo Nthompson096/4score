@@ -21,6 +21,12 @@ Disregard that just run requirements.txt with
 
     pip install -r requirements.txt
 
+Alternatively you may also just run the install script aptly named ``4score-install.sh`` with
+
+    sh 4score-install.sh
+
+And it should install everything for you so long as you have bash on your system.
+
 This would be only used for text only; on by default; comment it out if using voice.
 
     # Open the file for reading, text only; on by default.
